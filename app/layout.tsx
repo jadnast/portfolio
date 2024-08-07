@@ -1,11 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react"
 import { Inter as FontSans } from "next/font/google"
+import { GoogleAnalytics } from '@next/third-parties/google'
 import "./globals.css";
 
 import { cn } from "@/lib/utils"
 import Header from "@/components/header";
 import Player from "@/components/player";
+import Yandex from "@/components/yadnex"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -80,6 +82,8 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
     <html lang="en" suppressHydrationWarning className="dark">
       <head />
       <Analytics/>
+      <GoogleAnalytics gaId="G-CKH30LK8FE" />
+      <Yandex/>
       <body className={cn("min-h-screen bg-background font-sans antialiased shadow-kononenko",fontSans.variable)}>
         <Header></Header>
         {children}
