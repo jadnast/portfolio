@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react';
 import works from '../lib/works.json';
+import Image from 'next/image'
 
 const WorksSection: React.FC = () => {
   const [gap, setGap] = useState<string>('0');
@@ -43,7 +44,14 @@ const WorksSection: React.FC = () => {
           >
             {worksInRow.map((work, index) => (
               <div key={index} className="bento">
-                <img src={`/works/${work.image}`} alt={`${work.title}`} />
+                <Image
+                    src={`/works/${work.image}`}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    style={{ width: '100%', height: 'auto'}}
+                    alt={`${work.title}`}
+                />
                 <div className="flex justify-between">
                     <p>{work.title}</p>
                     <p className='opacity-50'>{work.customer}</p>
