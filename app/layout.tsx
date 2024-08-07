@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/react"
 import { Inter as FontSans } from "next/font/google"
 import "./globals.css";
 
@@ -78,6 +79,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
   return (
     <html lang="en" suppressHydrationWarning className="dark">
       <head />
+      <Analytics/>
       <body className={cn("min-h-screen bg-background font-sans antialiased shadow-kononenko",fontSans.variable)}>
         <Header></Header>
         {children}
